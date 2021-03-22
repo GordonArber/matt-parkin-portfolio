@@ -1,0 +1,40 @@
+.dynamicGrid {
+  display: grid;
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.dynamicGrid__container {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 175px;
+}
+
+.dynamicGrid__imageCard {
+  width: 100%;
+  height: 175px;
+  object-fit: cover;
+  transition: all 1.5s ease;
+}
+
+.dynamicGrid__imageCardButtonContainer {
+  display: flex;
+  flex-direction: row;
+
+  margin-top: -175px;
+  align-self: flex-end;
+  justify-content: space-evenly;
+  border-bottom-left-radius: 8px;
+  border: 1px dashed white;
+  width: 80px;
+}
+
+.dynamicGrid__imageCard:hover {
+  cursor: pointer;
+}

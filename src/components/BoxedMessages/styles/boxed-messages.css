@@ -1,0 +1,32 @@
+.boxedMessages__displaySuccess {
+  display: inline-block;
+  padding: 15px;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  background-color: #ffffff;
+  color: #4caf50;
+  margin-top: 5px;
+}
+
+.boxedMessages__displayWarning {
+  display: inline-block;
+  padding: 15px;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  background-color: #ffffcc;
+  color: #cab605;
+  margin-top: 5px;
+}
+
+.boxedMessages__displayError {
+  display: inline-block;
+  padding: 15px;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  background-color: #ffdddd;
+  color: rgb(211, 0, 0);
+  margin-top: 5px;
+}

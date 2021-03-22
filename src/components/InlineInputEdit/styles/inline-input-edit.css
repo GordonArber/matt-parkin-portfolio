@@ -1,0 +1,12 @@
+.inlineInputEdit__input > input {
+  background-color: transparent;
+  outline: none;
+  margin: 0px;
+  padding: 0px;
+  box-shadow: none;
+  border: none;
+}
+
+.inlineInputEdit__input > input:focus {
+  box-shadow: none;
+}

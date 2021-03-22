@@ -1,0 +1,19 @@
+.footer {
+  display: flex;
+  flex-grow: 0.2;
+  min-height: 110px;
+  justify-content: center;
+  background-color: rgba(90, 90, 90, 0.03);
+  bottom: 0;
+}
+
+.footer__links {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.footer__buttonContainer {
+  margin-top: 75%;
+}

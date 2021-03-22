@@ -1,0 +1,40 @@
+.tryAgain {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 2;
+}
+
+.tryAgain__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 700px;
+  width: 700px;
+  padding: 50px 60px;
+}
+
+.tryAgain__heading {
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  font-size: 2em;
+  line-height: 1em;
+  text-transform: uppercase;
+  font-weight: 100;
+  font-style: normal;
+  color: #bdbdbd;
+  word-wrap: normal;
+  margin-bottom: 0.75em;
+}
+
+.tryAgain__bodyText {
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  font-size: 1.2em;
+  line-height: 1em;
+  font-weight: 100;
+  font-style: normal;
+  color: #bdbdbd;
+  word-wrap: normal;
+  margin-bottom: 0.75em;
+}
