@@ -1,22 +1,22 @@
-import { useUser } from "../../../store/userStore";
-import { db } from "../../../data/firebase";
-import { InlineInputEdit } from "../../InlineInputEdit/InlineInputEdit";
+// import { useUser } from "../../../store/userStore";
+// import { db } from "../../../data/firebase";
 
-const _handleFocus = (text: string) => {
-  console.log("Focused with text: " + text);
-};
+// const _handleFocus = (text: string) => {
+//   console.log("Focused with text: " + text);
+// };
 
-const _handleFocusOut = (text: string) => {
-  db.collection("userData").doc("vREP4xBazXgx9C3iOopEHi9yA8t2").update({
-    title: text,
-  });
-};
+// const _handleFocusOut = (text: string) => {
+//   db.collection("userData").doc("vREP4xBazXgx9C3iOopEHi9yA8t2").update({
+//     title: text,
+//   });
+// };
 
 export const TitleData = ({ title }: any) => {
-  const { user } = useUser();
+  // const { user } = useUser();
   return (
     <p className="header__title">
-      {user && title ? (
+      {title && title}
+      {/* {user && title ? (
         <InlineInputEdit
           text={title}
           inputWidth="150px"
@@ -30,7 +30,7 @@ export const TitleData = ({ title }: any) => {
         />
       ) : (
         <>{title && title}</>
-      )}
+      )} */}
     </p>
   );
 };

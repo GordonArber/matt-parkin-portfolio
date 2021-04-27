@@ -8,7 +8,7 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 import "./styles/gallery.css";
 import EvenGrid from "./Layouts/EvenGrid";
-import DynamicGrid from "./Layouts/DynamicGrid";
+// import DynamicGrid from "./Layouts/DynamicGrid";
 
 export const Gallery = () => {
   const [imageToShow, setImageToShow] = useState({
@@ -96,7 +96,7 @@ export const Gallery = () => {
           {respImage && (
             <div className="gallery__slidesWrapper">
               <EvenGrid images={respImage} showImage={showImage} />
-              <DynamicGrid images={respImage} showImage={showImage} />
+              {/* <DynamicGrid images={respImage} showImage={showImage} /> */}
 
               {lightboxDisplay ? (
                 <div id="lightbox" onClick={hideLightBox}>

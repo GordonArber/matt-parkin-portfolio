@@ -1,3 +1,7 @@
+.contactform {
+  min-width: 700px;
+}
+
 .contactform__col {
   display: flex;
 }
