@@ -1,7 +1,6 @@
 import "./styles/app.css";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import React from "react";
 
 import { LoggedInRoute } from "../../routes";
 
@@ -19,6 +18,7 @@ import { ResetPassword } from "../../pages/admin/resetPassword";
 import { ConfirmPassword } from "../../pages/confirmPassword/confirmPassword";
 import { PasswordChanged } from "../../pages/confirmPassword/passwordChanged";
 import { TryAgain } from "../../pages/confirmPassword/tryAgain";
+import { Episodes } from "../../pages/episodes/episodes";
 
 export function App() {
   return (
@@ -42,6 +42,10 @@ export function App() {
             <Route exact path="/contact">
               <Header />
               <Contact />
+            </Route>
+            <Route exact path="/episodes">
+              <Header />
+              <Episodes />
             </Route>
             <Route exact path="/">
               <Header />

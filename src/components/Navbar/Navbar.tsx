@@ -26,6 +26,16 @@ export const Navbar = () => {
               </NavLink>
               <NavLink
                 exact
+                to="/episodes"
+                className="navbar__link"
+                activeClassName="navbar__activeLink"
+              >
+                <li className="navbar__item">
+                  <span className="navbar__linkText">Episodes</span>
+                </li>
+              </NavLink>
+              <NavLink
+                exact
                 to="/contact"
                 className="navbar__link"
                 activeClassName="navbar__activeLink"
@@ -56,6 +66,16 @@ export const Navbar = () => {
             >
               <li className="navbar__item">
                 <span className="navbar__linkText">Portfolio</span>
+              </li>
+            </NavLink>
+            <NavLink
+              exact
+              to="/episodes"
+              className="navbar__link"
+              activeClassName="navbar__activeLink"
+            >
+              <li className="navbar__item">
+                <span className="navbar__linkText">Episodes</span>
               </li>
             </NavLink>
             <NavLink

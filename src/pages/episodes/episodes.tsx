@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { db } from "../../data/firebase";
-import "./styles/contact.css";
+import "./styles/episodes.css";
 
 export const Episodes = () => {
   const [bannerImage, bannerImageSet] = useState("");
@@ -16,14 +16,25 @@ export const Episodes = () => {
   }, []);
 
   return (
-    <div className="contact">
-      <div className="contact__container">
+    <div className="episodes">
+      <div className="episodes__container">
         <hr />
-        {bannerImage && (
-          <img src={bannerImage} alt="" className="contact__banner" />
-        )}
 
-        <h3 className="contact__heading">Contact me:</h3>
+        <div className="episodes_list">
+          <h1 className="episodes__heading">Episodes</h1>
+          <div className="episodes__card">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/sppnMZBRE8w"
+              title="title"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+
         <hr />
       </div>
     </div>
