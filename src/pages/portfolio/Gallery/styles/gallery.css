@@ -1,6 +1,22 @@
-.gallery {
+/* .gallery {
   display: flex;
   max-width: 1095px;
+} */
+
+@media only screen and (max-width: 768px) {
+  .gallery {
+    display: flex;
+    max-width: 1095px;
+  }
+}
+
+.gallery__slidesWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  max-width: 1095px;
+  align-items: center;
 }
 
 #lightbox-img {
