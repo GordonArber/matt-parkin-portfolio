@@ -91,6 +91,7 @@ export const ContactForm = () => {
   return (
     <div className="contactform">
       <div className="contactform__container">
+        <h3 className="contactform__heading">Contact me:</h3>
         <form onSubmit={(evt) => handleSubmit(evt)} method="POST">
           <h4 className="contactform__nameTitle">Name *</h4>
           <div className="contactform__col">

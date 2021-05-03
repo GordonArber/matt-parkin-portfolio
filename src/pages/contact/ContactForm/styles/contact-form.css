@@ -93,3 +93,15 @@
   cursor: no-drop;
   border: none;
 }
+
+.contactform__heading {
+  display: flex;
+  font-size: 18px;
+  line-height: 1.2em;
+  text-transform: none;
+  letter-spacing: 0px;
+  font-weight: 700;
+  font-style: normal;
+  color: #adadad;
+  margin-bottom: 1em;
+}

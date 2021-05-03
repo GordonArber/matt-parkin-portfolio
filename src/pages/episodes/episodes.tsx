@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { db } from "../../data/firebase";
-import { ContactForm } from "./ContactForm";
 import "./styles/contact.css";
 
-export const Contact = () => {
+export const Episodes = () => {
   const [bannerImage, bannerImageSet] = useState("");
 
   useEffect(() => {
@@ -24,7 +23,7 @@ export const Contact = () => {
           <img src={bannerImage} alt="" className="contact__banner" />
         )}
 
-        <ContactForm />
+        <h3 className="contact__heading">Contact me:</h3>
         <hr />
       </div>
     </div>
