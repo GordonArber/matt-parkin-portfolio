@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { FaDoorOpen } from "react-icons/fa";
 
 import { useUser } from "../../store/userStore";
-import { EditInfoButton } from "./EditInfoButton/EditInfoButton";
+import { EditInfoButton } from "./EditInfoButton";
 
 export const Navbar = () => {
   const { user, signout } = useUser();
@@ -32,6 +32,16 @@ export const Navbar = () => {
               >
                 <li className="navbar__item">
                   <span className="navbar__linkText">Episodes</span>
+                </li>
+              </NavLink>
+              <NavLink
+                exact
+                to="/about"
+                className="navbar__link"
+                activeClassName="navbar__activeLink"
+              >
+                <li className="navbar__item">
+                  <span className="navbar__linkText">About</span>
                 </li>
               </NavLink>
               <NavLink
@@ -76,6 +86,16 @@ export const Navbar = () => {
             >
               <li className="navbar__item">
                 <span className="navbar__linkText">Episodes</span>
+              </li>
+            </NavLink>
+            <NavLink
+              exact
+              to="/about"
+              className="navbar__link"
+              activeClassName="navbar__activeLink"
+            >
+              <li className="navbar__item">
+                <span className="navbar__linkText">About</span>
               </li>
             </NavLink>
             <NavLink

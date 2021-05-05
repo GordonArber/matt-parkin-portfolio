@@ -3,6 +3,7 @@
   flex-direction: column;
   font-family: "Montserrat", sans-serif;
   font-size: 17px;
+  font-size: 1.2em;
   text-transform: uppercase;
   font-weight: 500;
   font-style: normal;
@@ -91,4 +92,16 @@
   height: 50px;
   border: 1.4px dashed white;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    font-size: 9px;
+    font-size: 0.9em;
+    line-height: 1em;
+    letter-spacing: 1.5px;
+  }
+  .navbar__item {
+    padding: 1.8em 1.1em;
+  }
 }

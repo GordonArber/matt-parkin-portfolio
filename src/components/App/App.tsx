@@ -19,6 +19,7 @@ import { ConfirmPassword } from "../../pages/confirmPassword/confirmPassword";
 import { PasswordChanged } from "../../pages/confirmPassword/passwordChanged";
 import { TryAgain } from "../../pages/confirmPassword/tryAgain";
 import { Episodes } from "../../pages/episodes/episodes";
+import { About } from "../../pages/about/about";
 
 export function App() {
   return (
@@ -42,6 +43,10 @@ export function App() {
             <Route exact path="/contact">
               <Header />
               <Contact />
+            </Route>
+            <Route exact path="/about">
+              <Header />
+              <About />
             </Route>
             <Route exact path="/episodes">
               <Header />

@@ -1,29 +1,29 @@
-import "./styles/edit-icon.css";
+import "./styles/edit-vid-icon.css";
 import { useState } from "react";
 
 import { FaPencilAlt } from "react-icons/fa";
-import { Edit } from "./Edit";
+import { EditVid } from "./EditVid";
 
-export const EditIcon = ({
+export const EditVidIcon = ({
   id,
   title,
-  picUrl,
+  videoID,
 }: {
   id: string;
   title: string;
-  picUrl: string;
+  videoID: string;
 }) => {
   const [isOpen, isOpenSet] = useState(false);
 
   return (
     <>
-      <button className="editIcon" onClick={() => isOpenSet(true)}>
+      <button className="editVidIcon" onClick={() => isOpenSet(true)}>
         <FaPencilAlt />
       </button>
-      <Edit
+      <EditVid
         id={id}
         title={title}
-        picUrl={picUrl}
+        videoID={videoID}
         open={isOpen}
         onClose={() => isOpenSet(false)}
       />

@@ -1,41 +1,41 @@
-import "./styles/edit.css";
+import "./styles/edit-vid.css";
 
 import { useState } from "react";
 import { createPortal } from "react-dom";
 
 import { RiCloseFill } from "react-icons/ri";
-import { BoxedMessages } from "../../../../../components/BoxedMessages";
-import { db } from "../../../../../data/firebase";
+import { BoxedMessages } from "../../../../components/BoxedMessages";
+import { db } from "../../../../data/firebase";
 
-export const Edit = ({
+export const EditVid = ({
   id,
   title,
-  picUrl,
+  videoID,
   open,
   onClose,
 }: {
   id: string;
   title: string;
-  picUrl: string;
+  videoID: string;
   open: boolean;
   onClose: () => void;
 }) => {
-  const [initialImage, initialImageSet] = useState(picUrl);
-  const [currentImage, currentImageSet] = useState(picUrl);
-  const [imageURLChanged, imageURLChangedSet] = useState(false);
-  const [initialImageTitle, initialImageTitleSet] = useState(title);
-  const [imageTitle, imageTitleSet] = useState(title);
-  const [imageTitleChanged, imageTitleChangedSet] = useState(false);
-  const [imageLoaded, imageLoadedSet] = useState(false);
+  const [initialVideo, initialVideoSet] = useState(videoID);
+  const [currentVideo, currentVideoSet] = useState(videoID);
+  const [videoIDChanged, videoIDChangedSet] = useState(false);
+  const [initialVideoTitle, initialVideoTitleSet] = useState(title);
+  const [videoTitle, videoTitleSet] = useState(title);
+  const [videoTitleChanged, videoTitleChangedSet] = useState(false);
+  const [videoLoaded, videoLoadedSet] = useState(false);
   const [errorDisplay, errorDisplaySet] = useState("");
 
   function closePanel() {
-    initialImageSet(picUrl);
-    initialImageTitleSet(title);
-    imageTitleSet("");
-    currentImageSet("");
-    imageURLChangedSet(false);
-    imageTitleChangedSet(false);
+    initialVideoSet(videoID);
+    initialVideoTitleSet(title);
+    videoTitleSet("");
+    currentVideoSet("");
+    videoIDChangedSet(false);
+    videoTitleChangedSet(false);
     onClose();
   }
 
@@ -44,31 +44,31 @@ export const Edit = ({
   async function handleSubmit(evt: React.FormEvent<HTMLFormElement>) {
     evt.preventDefault();
     try {
-      imageURLChanged &&
+      videoIDChanged &&
         (await db
           .collection("userData")
           .doc("vREP4xBazXgx9C3iOopEHi9yA8t2")
-          .collection("galleryData")
+          .collection("videoListData")
           .doc(id)
           .update({
-            picUrl: currentImage,
+            videoID: currentVideo,
           }));
 
-      imageTitleChanged &&
+      videoTitleChanged &&
         (await db
           .collection("userData")
           .doc("vREP4xBazXgx9C3iOopEHi9yA8t2")
-          .collection("galleryData")
+          .collection("videoListData")
           .doc(id)
           .update({
-            title: imageTitle,
+            title: videoTitle,
           }));
 
-      imageLoadedSet(false);
-      initialImageSet(currentImage);
-      initialImageTitleSet(imageTitle);
-      imageURLChangedSet(false);
-      imageTitleChangedSet(false);
+      videoLoadedSet(false);
+      initialVideoSet(currentVideo);
+      initialVideoTitleSet(videoTitle);
+      videoIDChangedSet(false);
+      videoTitleChangedSet(false);
       onClose();
     } catch (error) {
       errorDisplaySet(error);
@@ -77,16 +77,14 @@ export const Edit = ({
 
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     const field = evt.target.id;
-    if (field === "imageUrl") {
-      imageURLChangedSet(true);
-
-      currentImageSet(evt.target.value);
-      initialImageSet("");
-    } else if (field === "imageTitle") {
-      imageTitleChangedSet(true);
-
-      imageTitleSet(evt.target.value);
-      initialImageTitleSet("");
+    if (field === "videoID") {
+      videoIDChangedSet(true);
+      currentVideoSet(evt.target.value);
+      initialVideoSet("");
+    } else if (field === "videoTitle") {
+      videoTitleChangedSet(true);
+      videoTitleSet(evt.target.value);
+      initialVideoTitleSet("");
     }
   };
 
@@ -105,81 +103,81 @@ export const Edit = ({
             </div>
           </div>
           <div className="edit__body">
-            <p>Paste a self hosted image URL here</p>
+            <p>Paste a YouTube video ID here</p>
             <div className="editInputContainer">
               <form onSubmit={(evt) => handleSubmit(evt)} noValidate>
-                {currentImage.length > 0 ? (
+                {currentVideo.length > 0 ? (
                   <input
                     type="text"
-                    name="imageUrl"
-                    id="imageUrl"
+                    name="videoID"
+                    id="videoID"
                     className="edit__urlText"
-                    value={currentImage}
-                    onChange={(evt) => currentImageSet(evt.target.value)}
+                    value={currentVideo}
+                    onChange={(evt) => currentVideoSet(evt.target.value)}
                     required
-                    placeholder="Image URL"
+                    placeholder="YouTube Video ID"
                   />
                 ) : (
                   <input
                     type="text"
-                    name="imageUrl"
-                    id="imageUrl"
+                    name="videoID"
+                    id="videoID"
                     className="edit__urlText"
-                    value={initialImage}
+                    value={initialVideo}
                     onChange={(evt) => handleChange(evt)}
                     required
-                    placeholder="Image URL"
+                    placeholder="YouTube Video ID"
                   />
                 )}
 
                 <>
-                  {currentImage.length > 0 ? (
+                  {currentVideo.length > 0 ? (
                     <img
-                      src={currentImage}
-                      onLoad={() => imageLoadedSet(true)}
-                      onError={() => imageLoadedSet(false)}
+                      src={`https://img.youtube.com/vi/${currentVideo}/maxresdefault.jpg`}
+                      onLoad={() => videoLoadedSet(true)}
+                      onError={() => videoLoadedSet(false)}
                       alt=""
                       className="edit__imagePreview"
                     />
                   ) : (
                     <img
-                      src={initialImage}
-                      onLoad={() => imageLoadedSet(true)}
-                      onError={() => imageLoadedSet(false)}
+                      src={`https://img.youtube.com/vi/${initialVideo}/maxresdefault.jpg`}
+                      onLoad={() => videoLoadedSet(true)}
+                      onError={() => videoLoadedSet(false)}
                       alt=""
                       className="edit__imagePreview"
                     />
                   )}
 
-                  {imageLoaded ? (
+                  {videoLoaded ? (
                     <label
-                      className="edit__imageTitleLabel"
-                      htmlFor="imageTitle"
+                      className="edit__videoTitleLabel"
+                      htmlFor="videoTitle"
                     >
-                      <p> Caption/Title</p>
-                      {imageTitle.length > 0 ? (
+                      <p>Video Title</p>
+                      {videoTitle.length > 0 ? (
                         <input
                           type="text"
-                          name="imageTitle"
-                          id="imageTitle"
-                          className="edit__imageTitle"
-                          value={imageTitle}
-                          onChange={(evt) => imageTitleSet(evt.target.value)}
+                          name="videoTitle"
+                          id="videoTitle"
+                          className="edit__videoTitle"
+                          value={videoTitle}
+                          onChange={(evt) => videoTitleSet(evt.target.value)}
                           required
-                          placeholder="Caption/Title"
-                          maxLength={25}
+                          placeholder="Video Title"
+                          // maxLength={25}
                         />
                       ) : (
                         <input
                           type="text"
-                          name="imageTitle"
-                          id="imageTitle"
-                          className="edit__imageTitle"
-                          value={initialImageTitle}
+                          name="videoTitle"
+                          id="videoTitle"
+                          className="edit__videoTitle"
+                          value={initialVideoTitle}
                           onChange={(evt) => handleChange(evt)}
                           required
-                          placeholder="Caption/Title"
-                          maxLength={25}
+                          placeholder="Video Title"
+                          // maxLength={25}
                         />
                       )}
                     </label>
@@ -194,13 +192,13 @@ export const Edit = ({
                     </BoxedMessages>
                   )}
                 </>
-                {imageTitle.length > 0 ? (
+                {videoTitle.length > 0 ? (
                   <button
                     disabled={
-                      !imageLoaded
+                      !videoLoaded
                       // ||
-                      // currentImage.length < 1 ||
-                      // initialImageTitle.length < 1
+                      // currentVideo.length < 1 ||
+                      // initialVideoTitle.length < 1
                     }
                   >
                     Update
@@ -208,9 +206,9 @@ export const Edit = ({
                 ) : (
                   <button
                     disabled={
-                      !imageLoaded ||
-                      // currentImage.length < 1 ||
-                      initialImageTitle.length < 1
+                      !videoLoaded ||
+                      // currentVideo.length < 1 ||
+                      initialVideoTitle.length < 1
                     }
                   >
                     Update

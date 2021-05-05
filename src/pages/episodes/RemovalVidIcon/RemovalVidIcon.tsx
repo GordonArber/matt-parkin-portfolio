@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { FaTrash } from "react-icons/fa";
-import "./styles/removal-icon.css";
+import "./styles/removal-vid-icon.css";
 
-import { Remove } from "./Remove";
+import { RemoveVid } from "./RemoveVid";
 
-export const RemovalIcon = ({
-  picUrl,
-  picId,
+export const RemovalVidIcon = ({
+  videoID,
+  id,
 }: {
-  picUrl: string;
-  picId: string;
+  videoID: string;
+  id: string;
 }) => {
   const [isOpen, isOpenSet] = useState(false);
 
@@ -18,11 +18,11 @@ export const RemovalIcon = ({
       <button className="removalIcon" onClick={() => isOpenSet(true)}>
         <FaTrash />
       </button>
-      <Remove
+      <RemoveVid
         open={isOpen}
         onClose={() => isOpenSet(false)}
-        picUrl={picUrl}
-        picId={picId}
+        videoID={videoID}
+        id={id}
       />
     </>
   );
